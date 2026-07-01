@@ -1,0 +1,42 @@
+{
+  "name": "SupplierPortalAPI",
+  "version": "1.0.0",
+  "description": "Sample Node.js Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "ejs": "latest",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.2",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.3",
+    "node": "^22.6.0",
+    "nodemailer": "^6.10.1",
+    "path": "^0.12.7",
+    "puppeteer-core": "^24.43.1",
+    "sap-cf-axios": "^1.0.2",
+    "sequelize": "^6.37.7",
+    "tailwindcss": "^4.0.16",
+    "winston": "^3.17.0",
+    "xlsx": "^0.18.5",
+    "xml2js": "^0.6.2",
+    "xmlbuilder": "^15.1.1"
+  }
+}

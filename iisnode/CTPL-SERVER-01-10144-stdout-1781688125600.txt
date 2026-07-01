@@ -1,0 +1,7 @@
+Server is successfully running, and app is listening on port \\.\pipe\4cd2fc44-9b81-4079-aed2-54bc944cf950
+Connected to MySQL database
+Connected to MySQL database
+Table supplier_info_record ensured in database
+Received Login Attempt (PAN): 38Y98Y9TC7
+Session Suppliercode set to: CTPL
+Session UserName set to: 38Y98Y9TC7

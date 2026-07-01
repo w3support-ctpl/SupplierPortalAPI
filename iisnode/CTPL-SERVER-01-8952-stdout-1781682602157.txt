@@ -1,0 +1,4 @@
+Server is successfully running, and app is listening on port \\.\pipe\67f951f5-8744-4be8-83ca-db383904ad3d
+Connected to MySQL database
+Connected to MySQL database
+Table supplier_info_record ensured in database

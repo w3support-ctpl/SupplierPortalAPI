@@ -1,0 +1,191 @@
+Server is successfully running, and app is listening on port \\.\pipe\6e3b4bdb-28cc-4c7c-97ae-0f3d0d85e17c
+Connected to MySQL database
+Connected to MySQL database
+Table supplier_info_record ensured in database
+Received Login Attempt (PAN): 38Y98Y9TC7
+Session Suppliercode set to: CTPL
+Session UserName set to: 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Suppliercode from session Incoming RFQs: CTPL
+Incoming RFQ Query Params: {
+  RFQNumber: undefined,
+  rfqQDateFrom: undefined,
+  rfqQDateTo: undefined,
+  Status: undefined,
+  MaterialTypes: undefined
+}
+Requesting Incoming RFQs: {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_quotation_cds_sb/srvd_a2x/sap/zmy_quotation_cds_sd/0001/ZMY_QUOTATION_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100',
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Username from session My Order: 38Y98Y9TC7
+Username from Suppliercode My Order: CTPL
+From: undefined To: undefined PO undefined Material undefined Status undefined
+Request URL: https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Suppliercode from session My Deliveries: CTPL
+Username from session My deliveries: 38Y98Y9TC7
+deliveriesFilter====: undefined To: undefined PO undefined Material undefined goodsDelFrom undefined goodDelTo undefined
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_delivery_cds_sb/srvd_a2x/sap/zmy_delivery_cds_sd/0001/ZMY_DELIVERY_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+myInvoice api calling
+Session from Suppliercode My Invoice: CTPL
+Username from session: 38Y98Y9TC7
+FiscalYear: undefined From: undefined To: undefined PurchasingDocument: undefined Material: undefined invoiceStatus: undefined AccountingDocument: undefined
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmyinvoice_head_cds_sb/srvd_a2x/sap/zmyinvoice_head_cds_sd/0001/ZMYINVOICE_HEAD_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Received Login Attempt (PAN): 38Y98Y9TC7
+Session Suppliercode set to: CTPL
+Session UserName set to: 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Middleware: Username from session is 38Y98Y9TC7
+Username from session My Order: 38Y98Y9TC7
+Username from Suppliercode My Order: CTPL
+From: undefined To: undefined PO undefined Material undefined Status undefined
+Request URL: https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+myInvoice api calling
+Session from Suppliercode My Invoice: CTPL
+Username from session: 38Y98Y9TC7
+FiscalYear: undefined From: undefined To: undefined PurchasingDocument: undefined Material: undefined invoiceStatus: undefined AccountingDocument: undefined
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmyinvoice_head_cds_sb/srvd_a2x/sap/zmyinvoice_head_cds_sd/0001/ZMYINVOICE_HEAD_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Suppliercode from session My Deliveries: CTPL
+Username from session My deliveries: 38Y98Y9TC7
+deliveriesFilter====: undefined To: undefined PO undefined Material undefined goodsDelFrom undefined goodDelTo undefined
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_delivery_cds_sb/srvd_a2x/sap/zmy_delivery_cds_sd/0001/ZMY_DELIVERY_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Suppliercode from session Incoming RFQs: CTPL
+Incoming RFQ Query Params: {
+  RFQNumber: undefined,
+  rfqQDateFrom: undefined,
+  rfqQDateTo: undefined,
+  Status: undefined,
+  MaterialTypes: undefined
+}
+Requesting Incoming RFQs: {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_quotation_cds_sb/srvd_a2x/sap/zmy_quotation_cds_sd/0001/ZMY_QUOTATION_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100',
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+myInvoice api calling
+Session from Suppliercode My Invoice: CTPL
+Username from session: 38Y98Y9TC7
+FiscalYear: 2026 From: undefined To: undefined PurchasingDocument: undefined Material: undefined invoiceStatus: undefined AccountingDocument: undefined
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: "https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmyinvoice_head_cds_sb/srvd_a2x/sap/zmyinvoice_head_cds_sd/0001/ZMYINVOICE_HEAD_CDS?$filter=FiscalYear eq '2026'",
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Username from session My Order: 38Y98Y9TC7
+Username from Suppliercode My Order: CTPL
+From: undefined To: undefined PO undefined Material undefined Status undefined
+Request URL: https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?',
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Username from session My Order: 38Y98Y9TC7
+Username from Suppliercode My Order: CTPL
+From: undefined To: undefined PO 5500000047 Material undefined Status undefined
+Request URL: https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?$filter=PO eq '5500000047'
+url {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: "https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_order_cds_sb/srvd_a2x/sap/zmy_order_cds_sd/0001/ZMY_ORDER_CDS?$filter=PO eq '5500000047'",
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
+Suppliercode from session : CTPL
+username 38Y98Y9TC7
+poDetails {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: "https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zpurch_ord_dtls_cds_sb/srvd_a2x/sap/zpurch_ord_dtls_cds_sd/0001/ZPURCH_ORD_DTLS_CDS?$top=1000000&$filter=PurchaseOrder eq '5500000047'",
+  headers: {
+    Authorization: 'Basic Y3RwbGFiYXA6UGFzc3dvcmRAIzA5ODc2NTQzMjE=',
+    Cookie: 'sap-usercontext=sap-client=100'
+  }
+}
+Middleware: Username from session is 38Y98Y9TC7
