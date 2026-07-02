@@ -2143,17 +2143,17 @@ app.get('/incomingRfqs', async (req, res) => {
 
 
     if (RFQNumber) {
-        filterConditions.push('RFQNumber eq ' + "'" + RFQNumber + "'");
+        filterConditions.push('RFQ eq ' + "'" + RFQNumber + "'");
     }
 
 
 
     if (rfqQDateFrom) {
-        filterConditions.push('QDate ge ' + "" + rfqQDateFrom);
+        filterConditions.push('RFQDate ge ' + "'" + rfqQDateFrom + "'");
     }
 
     if (rfqQDateTo) {
-        filterConditions.push('QDate le ' + "" + rfqQDateTo);
+        filterConditions.push('RFQDate le ' + "'" + rfqQDateTo + "'");
     }
 
     if (Status) {
@@ -3471,6 +3471,60 @@ app.post('/forgotPassword/reset', async (req, res) => {
     }
 });
 // -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// INCOMING RFQs API (Supplier & Admin)
+// -----------------------------------------------------------------------------
+app.post('/submitIncomingRfq', (req, res) => {
+    const { RFQs, RFQsDate, Status, ValidUntil, Material, MaterialDescription, Item, Supplier, SubmissionDate, DocumentType, Amount } = req.body;
+    
+    // Format dates to handle empty or invalid inputs properly (or pass null)
+    const fmtDate = (d) => (d && d !== '—' && d !== '') ? new Date(d).toISOString().slice(0, 10) : null;
+    
+    const sql = `INSERT INTO incomingrfqs (RFQs, RFQsDate, Status, ValidUntil, Material, MaterialDescription, Item, Supplier, SubmissionDate, DocumentType, Amount, IsApproved) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`;
+    db.query(sql, [RFQs, fmtDate(RFQsDate), Status, fmtDate(ValidUntil), Material, MaterialDescription, Item || null, Supplier, fmtDate(SubmissionDate), DocumentType, Amount || null], (err) => {
+        if (err) {
+            console.error("Submit RFQ DB error:", err);
+            return res.status(500).json({ success: false, error: 'Database insert failed' });
+        }
+        res.json({ success: true, message: 'RFQ successfully submitted.' });
+    });
+});
+
+app.get('/getIncomingRfqsRequests', (req, res) => {
+    const sql = 'SELECT * FROM incomingrfqs WHERE IsApproved = 0';
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error("Get RFQs DB error:", err);
+            return res.status(500).json({ success: false, error: 'Failed to fetch RFQs' });
+        }
+        res.json(results);
+    });
+});
+
+app.post('/approveIncomingRfq', (req, res) => {
+    const { rfqId } = req.body;
+    const sql = 'UPDATE incomingrfqs SET IsApproved = 1 WHERE ID = ?';
+    db.query(sql, [rfqId], (err, results) => {
+        if (err) {
+            console.error("Approve RFQ DB error:", err);
+            return res.status(500).json({ success: false, error: 'Failed to approve RFQ' });
+        }
+        res.json({ success: true, message: 'RFQ approved.' });
+    });
+});
+
+app.post('/rejectIncomingRfq', (req, res) => {
+    const { rfqId } = req.body;
+    const sql = 'UPDATE incomingrfqs SET IsApproved = 2 WHERE ID = ?';
+    db.query(sql, [rfqId], (err, results) => {
+        if (err) {
+            console.error("Reject RFQ DB error:", err);
+            return res.status(500).json({ success: false, error: 'Failed to reject RFQ' });
+        }
+        res.json({ success: true, message: 'RFQ rejected.' });
+    });
+});
 
 app.listen(PORT, (error) => {
     if (!error) {

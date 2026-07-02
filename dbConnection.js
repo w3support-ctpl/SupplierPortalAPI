@@ -65,6 +65,32 @@ db.connect((err) => {
             console.log('Table supplier_info_record ensured in database');
         }
     });
+
+    const createIncomingRfqsSql = `
+        CREATE TABLE IF NOT EXISTS incomingrfqs (
+            ID INT NOT NULL AUTO_INCREMENT,
+            RFQs VARCHAR(50) NOT NULL,
+            RFQsDate DATE DEFAULT NULL,
+            Status VARCHAR(50) DEFAULT NULL,
+            ValidUntil DATE DEFAULT NULL,
+            Material VARCHAR(100) DEFAULT NULL,
+            MaterialDescription VARCHAR(255) DEFAULT NULL,
+            Item INT DEFAULT NULL,
+            Supplier VARCHAR(100) DEFAULT NULL,
+            SubmissionDate DATE DEFAULT NULL,
+            DocumentType VARCHAR(50) DEFAULT NULL,
+            Amount DECIMAL(18,2) DEFAULT NULL,
+            IsApproved TINYINT(1) NOT NULL DEFAULT '0',
+            PRIMARY KEY (ID)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `;
+    db.query(createIncomingRfqsSql, (err) => {
+        if (err) {
+            console.error('Error creating incomingrfqs table:', err);
+        } else {
+            console.log('Table incomingrfqs ensured in database');
+        }
+    });
 });
 
 // Helper to ensure user status rows exist in registrationprocess and allRegistrationStatus
