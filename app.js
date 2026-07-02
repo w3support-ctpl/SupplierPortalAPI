@@ -989,7 +989,7 @@ app.post('/login', async (req, res) => {
                     req.session.UserName = fullyApprovedUser.PanNo;
                     req.session.username = fullyApprovedUser.PanNo;
                     req.session.panNo = fullyApprovedUser.PanNo;
-                    req.session.Suppliercode = fullyApprovedUser.SupplierPanCode;
+                    req.session.Suppliercode = fullyApprovedUser.SupplierCode ? String(fullyApprovedUser.SupplierCode).padStart(10, '0') : null;
                     req.session.ActualSupplierName = fullyApprovedUser.SupplierName;
                     req.session.ActualSupplierCode = fullyApprovedUser.SupplierCode;
                     req.session.role = 'Supplier';
@@ -2093,6 +2093,113 @@ app.get('/incomingRFQSFilter', async (req, res) => {
     }
 });
 
+
+// MY INCOMING RFQS
+
+app.get('/incomingRfqs', async (req, res) => {
+    const username = req.session.UserName;
+    const Suppliercode = req.session.Suppliercode;
+    const role = req.session.role;
+    console.log("Suppliercode from session My Incoming:", Suppliercode);
+    console.log("Username from session:", username);
+
+    const RFQNumber = req.query.RFQNumber;
+
+    const rfqQDateFrom = req.query.QDateFrom;
+    const rfqQDateTo = req.query.QDateTo;
+    const Status = req.query.Status;
+    const MaterialTypes = req.query.Material;
+
+    console.log("Query Params:======", { RFQNumber, rfqQDateFrom, rfqQDateTo, Status, MaterialTypes });
+
+    // Build dynamic filter
+    let filterConditions = [];
+    
+    if (role === 'Supplier' && Suppliercode) {
+        filterConditions.push("Supplier eq '" + Suppliercode + "'");
+    }
+
+    //  if (RFQNumber) {
+    //     filterConditions.push(`RFQNumber eq '${RFQNumber}'`);
+    // }
+
+    // if (rfqQDateFrom) {
+    //     filterConditions.push(`QDate ge ${rfqQDateFrom}`);
+    // }
+
+    // if (rfqQDateTo) {
+    //     filterConditions.push(`QDate le ${rfqQDateTo}`);
+
+    // }
+
+    // if (Status) {
+    //     filterConditions.push(`Status eq '${Status}'`);
+    // }
+
+    // if (MaterialTypes) {
+    //     filterConditions.push(`Material eq '${MaterialTypes}'`);
+    // }
+
+
+
+    if (RFQNumber) {
+        filterConditions.push('RFQNumber eq ' + "'" + RFQNumber + "'");
+    }
+
+
+
+    if (rfqQDateFrom) {
+        filterConditions.push('QDate ge ' + "" + rfqQDateFrom);
+    }
+
+    if (rfqQDateTo) {
+        filterConditions.push('QDate le ' + "" + rfqQDateTo);
+    }
+
+    if (Status) {
+        filterConditions.push('Status eq ' + "'" + Status + "'");
+    }
+
+    if (MaterialTypes) {
+        filterConditions.push('Material eq ' + "'" + MaterialTypes + "'");
+    }
+
+    //   let filterQuery = filterConditions.length > 0 ? `$filter=${filterConditions.join(' and ')}` : '';
+
+    let filterQueryOrder = filterConditions.length > 0 ? `$filter=${filterConditions.join(' and ')}` : '';
+
+    const baseUrl = hostname + "/sap/opu/odata4/sap/zsb_inc_rfq_cds/srvd_a2x/sap/zsd_inc_rfq_cds/0001/ZINC_RFQ_CDS";
+    const fullUrl = filterQueryOrder ? `${baseUrl}?${filterQueryOrder}` : baseUrl;
+
+
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: fullUrl,
+
+        //  url: 'https://my401677-api.s4hana.cloud.sap/sap/opu/odata4/sap/zmy_quotation_cds_sb/srvd_a2x/sap/zmy_quotation_cds_sd/0001/ZMY_QUOTATION_CDS?$filter=RFQNumber eq \'7000000002\' and QDate ge 2023-04-08 and QDate le 2023-04-08 and Material eq \'CABLE\' and Status eq \'02\'',
+        headers: {
+            'Authorization': AuthorizationPrd,
+            'Cookie': 'sap-usercontext=sap-client=100',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    };
+
+    console.log("Requesting:", config);
+
+    try {
+        const response = await axios.request(config);
+        // console.log("Invoice data received:", response.data); // safe to log
+        res.json(response.data); // ✅ only send data part, avoids circular structure
+    } catch (error) {
+        console.error("Error fetching invoice data:", error.message);
+        res.status(500).json({ error: 'Failed to fetch invoice data' });
+    }
+});
+
+
+// MY QUOTATIONS
 
 // Replace this with your actual hostname
 
